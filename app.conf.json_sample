@@ -1,0 +1,9 @@
+{
+    "database": {
+        "dbHost": "host",
+        "dbUser": "dbUser",
+        "dbPass": "changeme",
+        "dbName": "dbname",
+        "dialect": "postgres"
+    }
+}
