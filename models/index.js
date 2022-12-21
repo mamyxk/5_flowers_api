@@ -4,7 +4,10 @@ const config = require('../app.conf.json')
 const connection = new Sequelize(config.database.dbName,config.database.dbUser,config.database.dbPass,{
     host: config.database.dbHost,
     dialect: config.database.dialect,
-    operatorAliases: false
+    operatorAliases: false,
+    define: {
+        timestamps: false
+    }
 });
 
 
