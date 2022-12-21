@@ -13,7 +13,10 @@ const db = {};
 db.Sequelize = Sequelize;
 db.connection = connection;
 db.accounts = require("./account")(connection,Sequelize);
-db.clients = require("./client")(connection,Sequelize)
-db.clients.belongsTo(db.accounts)
+db.clients = require("./client")(connection,Sequelize);
+db.employee = require("./employee")(connection,Sequelize);
+
+db.clients.belongsTo(db.accounts);
+db.employee.belongsTo(db.accounts);
 
 module.exports = db;
