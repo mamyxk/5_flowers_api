@@ -24,7 +24,7 @@ exports.create = (req, res) => {
         {
             account: account,
             email: req.body.email
-            
+
         },
         {
             include: [Accounts]
@@ -61,17 +61,22 @@ exports.createAdmin = (req, res) => {
 };
 
 exports.login = (req, res) => {
-    Accounts.findAll({
-        where: {
-            login: req.body.login,
-            password: req.body.password
-        }
-    }).then(data =>
-        res.send(data)
-    ).catch(err => {
-        // console.log(req.body)
-        res.status(400).send({
-            Message: err.message || "Not found"
-        })
+    Clients.findAll({
+        include: [{
+            model: Accounts,
+            where: {
+                login: req.body.login,
+                password: req.body.password
+            }
+        }],
+
     })
+        .then(data =>
+            res.send(data)
+        ).catch(err => {
+            // console.log(req.body)
+            res.status(400).send({
+                Message: err.message || "Not found"
+            })
+        })
 };
