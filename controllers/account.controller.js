@@ -1,9 +1,9 @@
 const db = require('../models')
 
-const Client = db.clients
+const Clients = db.client
 const Accounts = db.account
 
-exports.findAll = (req,res) => {
+exports.findAll = (req, res) => {
     Accounts.findAll().then(data =>
         res.send(data)).catch(err => {
             res.status(500).send({
@@ -13,6 +13,35 @@ exports.findAll = (req,res) => {
 }
 
 exports.create = (req, res) => {
+    // Validate req body
+    const account = {
+        login: req.body.login,
+        password: req.body.password
+    }
+
+    console.log(account)
+    Clients.create(
+        {
+            account: account,
+            email: req.body.email
+            
+        },
+        {
+            include: [Accounts]
+        }
+    )
+        .then(data => {
+            console.log(data)
+            res.send(data)
+        }).catch(err => {
+            res.status(500).send({
+                Message: err.message || "Some message error"
+            })
+        })
+
+};
+
+exports.createAdmin = (req, res) => {
     // Validate req body
     const account = {
         login: req.body.login,
@@ -31,7 +60,7 @@ exports.create = (req, res) => {
 
 };
 
-exports.login = (req,res) => {
+exports.login = (req, res) => {
     Accounts.findAll({
         where: {
             login: req.body.login,

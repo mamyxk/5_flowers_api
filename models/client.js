@@ -4,7 +4,7 @@ module.exports = (conn, Sequelize) =>  {
     const Client = conn.define("client",{
         taxed: {
             type: Sequelize.BOOLEAN,
-            defaultValue: false
+            defaultValue: true
         },
         email: {
             type: Sequelize.STRING,
@@ -12,19 +12,19 @@ module.exports = (conn, Sequelize) =>  {
         },
         town: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true
         },
         postalCode: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true
         },
         address: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true
         },
         phontNumber: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true
         }
 
     });
