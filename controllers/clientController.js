@@ -41,24 +41,24 @@ exports.create = (req, res) => {
 
 };
 
-exports.createAdmin = (req, res) => {
-    // Validate req body
-    const account = {
-        login: req.body.login,
-        password: req.body.password,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName
-    }
-    console.log(account)
-    Accounts.create(account).then(data => {
-        res.send(data)
-    }).catch(err => {
-        res.status(500).send({
-            Message: err.message || "Some message error"
-        })
-    })
+// exports.createAdmin = (req, res) => {
+//     // Validate req body
+//     const account = {
+//         login: req.body.login,
+//         password: req.body.password,
+//         firstName: req.body.firstName,
+//         lastName: req.body.lastName
+//     }
+//     console.log(account)
+//     Accounts.create(account).then(data => {
+//         res.send(data)
+//     }).catch(err => {
+//         res.status(500).send({
+//             Message: err.message || "Some message error"
+//         })
+//     })
 
-};
+// };
 
 exports.login = (req, res) => {
     Clients.findAll({
@@ -70,13 +70,12 @@ exports.login = (req, res) => {
             }
         }],
 
-    })
-        .then(data =>
-            res.send(data)
-        ).catch(err => {
-            // console.log(req.body)
-            res.status(400).send({
-                Message: err.message || "Not found"
-            })
+    }).then(data =>
+        res.send(data)
+    ).catch(err => {
+        // console.log(req.body)
+        res.status(400).send({
+            Message: err.message || "Not found"
         })
+    })
 };

@@ -33,8 +33,8 @@ db.connection.sync()
 
   
 // Import routers
-const accountsRouter = require('./routes/accountsRouter')
-app.use('/accounts', accountsRouter);
+const clientsRouter = require('./routes/clientsRouter')
+app.use('/accounts', clientsRouter);
 
 // Start app listen on port
 const PORT = process.env.PORT || 8081;
