@@ -4,7 +4,8 @@ module.exports = (conn, Sequelize) =>  {
     const Account = conn.define("account",{
             login: {
                 type: Sequelize.STRING,
-                allowNull: false
+                allowNull: false,
+                unique: true                
             },
             password: {
                 type: Sequelize.STRING,

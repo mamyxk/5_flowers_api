@@ -22,8 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Update database schema
 const db = require("./models");
-// db.connection.sync(/*{ force: true }*/)
-db.connection.sync({ force: true })
+db.connection.sync(/*{ force: true }*/)
+// db.connection.sync({ force: true })
   .then(() => {
     console.log("Synced db.");
   })

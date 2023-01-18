@@ -1,7 +1,7 @@
 const db = require('../models')
 
 const Client = db.clients
-const Accounts = db.accounts
+const Accounts = db.account
 
 exports.findAll = (req,res) => {
     Accounts.findAll().then(data =>
@@ -16,8 +16,11 @@ exports.create = (req, res) => {
     // Validate req body
     const account = {
         login: req.body.login,
-        password: req.body.password   
+        password: req.body.password,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
     }
+    console.log(account)
     Accounts.create(account).then(data => {
         res.send(data)
     }).catch(err => {
@@ -26,4 +29,20 @@ exports.create = (req, res) => {
         })
     })
 
+};
+
+exports.login = (req,res) => {
+    Accounts.findAll({
+        where: {
+            login: req.body.login,
+            password: req.body.password
+        }
+    }).then(data =>
+        res.send(data)
+    ).catch(err => {
+        // console.log(req.body)
+        res.status(400).send({
+            Message: err.message || "Not found"
+        })
+    })
 };
