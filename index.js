@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const sequelize_fixtures = require('sequelize-fixtures');
 
 const app = express();
 
