@@ -1,0 +1,37 @@
+[
+    {
+        "model": "product",
+        "data": {
+            "name": "Roza",
+            "price": 100,
+            "tax": 23,
+            "active": true,
+            "availBouquet": true,
+            "productTypes": [1]
+        }
+    },
+    {
+        "model": "product",
+        "data": {
+            "name": "Tulipan",
+            "price": 1500,
+            "tax": 23,
+            "active": true,
+            "availBouquet": true,
+            "productTypes": [1]
+
+        }
+    },
+    {
+        "model": "product",
+        "data": {
+            "name": "Szable",
+            "price": 4500,
+            "tax": 8,
+            "active": true,
+            "availBouquet": false,
+            "productTypes": [2]
+
+        }
+    }
+]

@@ -63,5 +63,6 @@ db.complaint.belongsTo(db.order)
 db.complaint.belongsTo(db.statusComplaint)
 
 db.product.belongsToMany(db.productType,{through: "products_types_join"})
+db.productType.belongsToMany(db.product,{through: "products_types_join"})
 
 module.exports = db;

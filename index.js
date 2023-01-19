@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const sequelize_fixtures = require('sequelize-fixtures');
+const sequelizeFixtures = require('sequelize-fixtures');
 
 const app = express();
 
@@ -23,9 +23,16 @@ app.use(express.urlencoded({ extended: true }));
 
 // Update database schema
 const db = require("./models");
-db.connection.sync()
-// db.connection.sync({ force: true })
+// db.connection.sync()
+db.connection.sync({ force: true })
   .then(() => {
+    // load fixtures
+    sequelizeFixtures.loadFiles([
+      "./fixtures/productTypes.json",
+      "./fixtures/products.json"
+    ],db).then(function(){
+      console.log('Loaded fixtures')})
+    // synced OK
     console.log("Synced db.");
   })
   .catch((err) => {

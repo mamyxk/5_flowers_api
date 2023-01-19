@@ -1,0 +1,20 @@
+[
+    {
+        "model": "productType",
+        "data": {
+            "name": "Kwiat"
+        }
+    },
+    {
+        "model": "productType",
+        "data": {
+            "name": "Kwiat Doniczkowy"
+        }
+    },
+    {
+        "model": "productType",
+        "data": {
+            "name": "Dodatek"
+        }
+    }
+]
