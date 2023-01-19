@@ -23,8 +23,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Update database schema
 const db = require("./models");
-// db.connection.sync()
-db.connection.sync({ force: true })
+db.connection.sync()
+// db.connection.sync({ force: true })
   .then(() => {
     // load fixtures
     sequelizeFixtures.loadFiles([
@@ -42,7 +42,9 @@ db.connection.sync({ force: true })
   
 // Import routers
 const clientsRouter = require('./routes/clientsRouter')
+const productsRouter = require('./routes/productsRouter')
 app.use('/accounts', clientsRouter);
+app.use('/products',productsRouter);
 
 // Start app listen on port
 const PORT = process.env.PORT || 8081;
