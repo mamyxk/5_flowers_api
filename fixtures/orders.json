@@ -1,0 +1,28 @@
+[
+    {
+        "model": "order",
+        "data": {
+            "createAt": "2023-01-19 12:00:03",
+            "discount": 0,
+            "paymentDate": "2023-01-19 12:00:03",
+            "price":120000
+        }
+    },
+    {
+        "model": "order",
+        "data": {
+            "createAt": "2023-01-19 13:00:03",
+            "discount": 0,
+            "paymentDate": "2023-01-19 13:05:03",
+            "price":160000
+        }
+    },
+    {
+        "model": "order",
+        "data": {
+            "createAt": "2023-01-19 07:00:03",
+            "discount": 0,
+            "price":80000
+        }
+    }
+]

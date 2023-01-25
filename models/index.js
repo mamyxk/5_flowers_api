@@ -31,6 +31,7 @@ db.order = require("./order")(connection,Sequelize);
 db.orderStatus = require("./orderStatus")(connection,Sequelize);
 db.product = require("./product")(connection,Sequelize);
 db.productCart = require("./productCart")(connection,Sequelize);
+db.productImage = require("./productImage")(connection,Sequelize);
 db.productOrder = require("./productOrder")(connection,Sequelize);
 db.productType = require("./productType")(connection,Sequelize);
 db.statusComplaint = require("./statusComplaint")(connection,Sequelize);
@@ -44,25 +45,27 @@ db.employee.belongsTo(db.account);
 db.discount.belongsTo(db.discountType);
 db.discount.belongsTo(db.client);
 
-db.bouquetCart.belongsTo(db.client)
-db.bouquetCart.belongsTo(db.bouquet)
-db.productCart.belongsTo(db.client)
+db.bouquetCart.belongsTo(db.client);
+db.bouquetCart.belongsTo(db.bouquet);
+db.productCart.belongsTo(db.client);
 
-db.bouquetProduct.belongsTo(db.product)
-db.bouquetProduct.belongsTo(db.bouquet)
+db.productImage.belongsTo(db.product);
 
-db.bouquetOrder.belongsTo(db.order)
-db.bouquetOrder.belongsTo(db.bouquet)
-db.productOrder.belongsTo(db.order)
+db.bouquetProduct.belongsTo(db.product);
+db.bouquetProduct.belongsTo(db.bouquet);
 
-db.order.belongsTo(db.statusOrder)
-db.order.belongsTo(db.statusPayment)
-db.order.belongsTo(db.statusDelivery)
+db.bouquetOrder.belongsTo(db.order);
+db.bouquetOrder.belongsTo(db.bouquet);
+db.productOrder.belongsTo(db.order);
 
-db.complaint.belongsTo(db.order)
-db.complaint.belongsTo(db.statusComplaint)
+db.order.belongsTo(db.statusOrder);
+db.order.belongsTo(db.statusPayment);
+db.order.belongsTo(db.statusDelivery);
 
-db.product.belongsToMany(db.productType,{through: "products_types_join"})
-db.productType.belongsToMany(db.product,{through: "products_types_join"})
+db.complaint.belongsTo(db.order);
+db.complaint.belongsTo(db.statusComplaint);
+
+db.product.belongsToMany(db.productType,{through: "products_types_join"});
+db.productType.belongsToMany(db.product,{through: "products_types_join"});
 
 module.exports = db;

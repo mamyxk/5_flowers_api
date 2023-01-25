@@ -8,10 +8,15 @@ module.exports = (conn, Sequelize) =>  {
             },
             createdAt: {
                 type: Sequelize.DATE,
-                allowNull: false
+                defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+                allowNull: true
             },
             decisionDate: {
                 type: Sequelize.DATE,
+                allowNull: true
+            },
+            decision: {
+                type: Sequelize.INTEGER
             }
     });
     return Complaint

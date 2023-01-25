@@ -1,0 +1,12 @@
+[
+    {
+        "model": "employee",
+        "data": {
+            "isAdmin": true,
+            "dateOfEmployment": "2023-01-19",
+            "email": "admin@gmail.com",
+            "phoneNumber": "555666333",
+            "account": []
+        }
+    }
+]

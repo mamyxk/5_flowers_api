@@ -1,0 +1,30 @@
+[
+    {
+        "model": "statusComplaint",
+        "data": {
+            "id": 1,
+            "name": "Założona"
+        }
+    },
+    {
+        "model": "statusComplaint",
+        "data": {
+            "id": 2,
+            "name": "Zaakceptowana"
+        }
+    },
+    {
+        "model": "statusComplaint",
+        "data": {
+            "id": 3,
+            "name": "Odrzucona"
+        }
+    },
+    {
+        "model": "statusComplaint",
+        "data": {
+            "id": 4,
+            "name": "Wycofana"
+        }
+    }
+]

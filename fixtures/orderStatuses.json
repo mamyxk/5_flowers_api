@@ -1,0 +1,30 @@
+[
+    {
+        "model": "orderStatus",
+        "data": {
+            "id": 1,
+            "name": "Złożone"
+        }
+    },
+    {
+        "model": "orderStatus",
+        "data": {
+            "id": 2,
+            "name": "Zrealizowane"
+        }
+    },
+    {
+        "model": "orderStatus",
+        "data": {
+            "id": 3,
+            "name": "W trakcie reklamacji"
+        }
+    },
+    {
+        "model": "orderStatus",
+        "data": {
+            "id": 4,
+            "name": "Zareklamowane"
+        }
+    }
+]
